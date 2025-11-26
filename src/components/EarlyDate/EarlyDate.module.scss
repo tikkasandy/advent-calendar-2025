@@ -1,0 +1,57 @@
+@import '/src/styles/shared.module.scss';
+
+.Logo {
+  height: 200px;
+  width: 200px;
+
+    .Grey & {
+      fill: $red-color;
+    }
+
+    .Yellow & {
+      fill: $red-color;
+    }
+
+    .Green & {
+      fill: $white-color;
+    }
+
+    .Red & {
+      fill:$white-color;
+    }
+
+    .Orange & {
+        fill: $black-color;
+    }
+}
+
+.Ho {
+    font-size: 40px;
+}
+
+.Text {
+    font-size: 36px
+}
+
+.Ho,
+.Text {
+    .Grey & {
+      color: $green-color;
+    }
+
+    .Yellow & {
+      color: $green-color;
+    }
+
+    .Green & {
+      color: $yellow-color;
+    }
+
+    .Red & {
+      color: $yellow-color;
+    }
+
+    .Orange & {
+        color: $white-color;
+    }
+}
