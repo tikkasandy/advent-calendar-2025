@@ -1,59 +1,121 @@
 @import "/src/styles/shared.module.scss";
 
 .Header {
-    position: relative;
-
-    max-width: $max-width;
-    width: 100%;
-    height: $header-height;
-    
-    margin-bottom: 10px;
-    padding: 10px;
-    
-    font-size: $date-size;
-    color: $white-color;
+  position: relative;
+  max-width: $max-width;
+  width: 100%;
+  height: $header-height;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: $date-size;
+  font-weight: 600;
+  color: $black-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .Wrapper {
-    position: relative;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+//   justify-content: center;
+  align-items: center;
+  gap: 50px; 
 }
 
-.Button {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 10px;
-
-    color: $white-color;
-    background-color: transparent;
-    cursor: pointer;
-
-    border: none;
-    border-radius: 50%;
-    
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    
-
-    &:hover {
-        // background-color: $hover-color;
-    }
-
-    &:active {
-        // background-color: $active-color;
-        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
+.TextGrid {
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-template-rows: auto min-content;
+  column-gap: 5px;
+  align-items: center;
+  position: relative;
+  flex-grow: 1;
 }
 
-.Svg {
-    width: 30px;
-    height: 30px;
+.Text {
+  font-size: 22px;
+  grid-column: 1;
+  grid-row: 1;
+  font-family: 'Rubik', sans-serif;
+  font-style: italic;
+}
+
+.Text1 {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 24px;
+  position: relative;
+}
+
+.Line1 {
+  position: absolute;
+//   bottom: -3px;
+  left: 0;
+  width: 95%;
+  height: 1px;
+//   background-color: $black-color;
+border-bottom: 1px dashed;
+}
+
+.Text2 {
+  grid-column: 2;
+  grid-row: 2;
+  font-size: 24px;
+  position: relative;
+}
+
+.Line2 {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 95%;
+  height: 1px;
+border-bottom: 1px dashed;
+}
+
+.Stamps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+
+.Stamp1,
+.Stamp2 {
+  width: 75px;
+  height: 100px;
+  background-color: #efe5dc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  --r: 4px;
+  padding: var(--r);
+
+  mask:
+    radial-gradient(50% 50%, #0000 66%, #000 67%) round var(--r) var(--r) /
+      calc(2 * var(--r)) calc(2 * var(--r)),
+    conic-gradient(#000 0 0) content-box;
+}
+
+.Stamp1 {
+  transform: rotate(5deg);
+}
+
+.Stamp2 {
+  transform: rotate(-20deg);
+}
+
+.Tree1,
+.Tree2 {
+  height: 90px;
+  width: 60px;
+  padding: 5px;
+  background-color: $red-color;
+}
+
+.Tree1 {
+  background-color: #1e4b5f;
 }

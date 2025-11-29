@@ -8,9 +8,9 @@ import s from "./Calendar.module.scss";
 
 const Calendar = () => {
   useEffect(() => {
-    document.body.style.backgroundColor = "";
+    // document.body.style.backgroundColor = "";
     return () => {
-      document.body.style.backgroundColor = "initial";
+      // document.body.style.backgroundColor = "initial";
     };
   }, []);
 

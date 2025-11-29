@@ -1,0 +1,31 @@
+.Day {
+  width: 100%;
+  // min-height: calc(100vh - 10px);
+  position: relative;
+  border-radius: 5px;
+  // padding: 7px;
+  background-image: url('../../images/img/cover.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 7px solid;
+  // border-radius: 7px;
+  border-image: repeating-linear-gradient(
+    135deg,
+    #1e4b5f,
+    #1e4b5f 15px,
+    transparent 15px,
+    transparent 20px,
+    #7a231d 20px,
+    #7a231d 35px,
+      transparent 35px,
+    transparent 40px,
+  ) 10;
+  
+}
+
+.DayInner {
+  // background-color: var(--bg-color, transparent);
+  border-radius: 7px;
+  // min-height: 100%;
+}

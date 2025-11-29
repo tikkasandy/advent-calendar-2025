@@ -1,37 +1,32 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import TwinklesLeft from "../Decor/TwinklesLeft";
-import TwinklesRight from "../Decor/TwinkleRight";
-import { IoCalendarOutline } from "react-icons/io5";
+import tree1 from "../../images/img/tree1.png";
+import tree2 from "../../images/img/tree2.png";
 import s from "./Header.module.scss";
 
 const Header = ({ text }) => {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const shouldHideElement = location.pathname === "/";
-
-  const onGoBack = () => {
-    navigate("/");
-  };
-
   return (
     <header className={s.Header}>
       <div className={s.Wrapper}>
-        <TwinklesLeft></TwinklesLeft>
-        <p className={s.Text}>{text}</p>
-        <TwinklesRight></TwinklesRight>
+        {/* <p className={s.Text}>{text}</p> */}
+        <div className={s.TextGrid}>
+          <p className={s.Text}>Від:</p>
+          <p className={s.Text1}>
+            Святого Миколая
+            <div className={s.Line1}></div>
+          </p>
+          {/* <p className={s.Text2}>
+            і Басі
+            <div className={s.Line2}></div>
+          </p> */}
+        </div>
       </div>
-
-      {!shouldHideElement && (
-        <button
-          className={s.Button}
-          type="button"
-          aria-label="Go Back"
-          onClick={onGoBack}
-        >
-          <IoCalendarOutline className={s.Svg} />
-        </button>
-      )}
+      <div className={s.Stamps}>
+        <div className={s.Stamp1}>
+          <img src={tree1} alt="Tree 1" className={s.Tree1} />
+        </div>
+        <div className={s.Stamp2}>
+          <img src={tree2} alt="Tree 2" className={s.Tree2} />
+        </div>
+      </div>
     </header>
   );
 };

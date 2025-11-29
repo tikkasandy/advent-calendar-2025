@@ -36,6 +36,7 @@ import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Task from "../../components/Task";
 import EarlyDate from "../../components/EarlyDate";
+import Footer from "../../components/Footer";
 import s from "./Day.module.scss";
 import variables from "../../styles/_colors.module.scss";
 import adventDays from "../../data/dayStyles";
@@ -56,17 +57,21 @@ const Day = () => {
     const foundDay = adventDays.find((day) => day.date === +dayId);
     if (foundDay) {
       const colorValue = variables[foundDay.color];
-      document.body.style.backgroundColor = colorValue;
+      // document.body.style.backgroundColor = colorValue;
+      document.documentElement.style.setProperty('--bg-color', colorValue);
     }
   }, [dayId]);
 
   return (
-    <>
-      <Header text={`${dayId} грудня`} />
-      <Main>
-        {isEarlyDate ? <EarlyDate dayId={dayId} /> : <Task date={dayId} />}
-      </Main>
-    </>
+    <div className={s.Day}>
+      <div className={s.DayInner}>
+        <Header />
+        <Main>
+          {isEarlyDate ? <EarlyDate dayId={dayId} /> : <Task date={dayId} />}
+        </Main>
+        <Footer text={`${dayId} грудня 2025 року`} />
+      </div>
+    </div>
   );
 };
 

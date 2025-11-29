@@ -1,0 +1,82 @@
+@import "/src/styles/shared.module.scss";
+
+.Footer {
+  position: relative;
+  max-width: $max-width;
+  width: 100%;
+  height: $footer-height;
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  gap: 10px;
+}
+
+.FirstLine {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.Wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Text {
+    font-size: $date-size;
+  font-weight: 600;
+  color: $black-color;
+  font-size: 22px;
+  font-family: 'Rubik', sans-serif;
+  font-style: italic;
+  margin: 0;
+}
+
+.Text1 {
+  font-size: 24px;
+  font-weight: 600;
+  position: relative;
+  padding-left: 30px;
+  padding-right: 40px;
+  margin: 0;
+}
+
+.Line1 {
+  position: absolute;
+  left: 0;
+  width: 95%;
+  height: 1px;
+  border-bottom: 1px dashed;
+}
+
+.SecondLine {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.Day {
+  font-size: 18px;
+  margin: 0;
+    transform: rotate(-10deg);
+}
+
+.Stamp {
+  position: absolute;
+  top:0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Tree {
+  height: 120px;
+  padding: 5px;
+  transform: rotate(-10deg);
+}

@@ -6,6 +6,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+  padding: 5px;
 }
 
 main {
@@ -26,6 +27,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   // font-size: calc(10px + 2vmin);
   font-size: 45px;
   color: white;
@@ -35,7 +37,7 @@ main {
   content:'';
   width: 137px;
   height: 60px;
-  background-image: url("./images/img/omela.png");
+  // background-image: url("./images/img/omela.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
