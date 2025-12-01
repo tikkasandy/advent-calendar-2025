@@ -19,7 +19,7 @@ const Task = ({ date }) => {
   const todayStash = christmasStash.find((day) => day.date === +date) || {};
   const todayStyle = dayStyles.find((day) => day.date === +date) || {};
 
-  const { task, logo } = todayTask;
+  const { task, gift } = todayTask;
   const { stash, password } = todayStash;
   const { color } = todayStyle;
 
@@ -58,46 +58,50 @@ const Task = ({ date }) => {
 
   return (
     <div className={`${s.Day} ${s[color]}`}>
-      <div>
-        <div className={s.TaskWrap}>
-          <p className={s.Task}>{task}</p>
-        </div>
-
-        {/* <div className={s.LogoWrap}>
-          <svg className={`${s.Logo}`}>
-            <use href={sprite + `#icon-${logo}`} />
-          </svg>
-        </div> */}
+      <div className={s.TaskWrap}>
+        <p className={s.Text}>Любі дівчатка!</p>
+        <p className={s.Text}>Ваше завдання на сьогодні:</p>
+        <p className={s.Task}>{task}</p>
+        {gift && (
+          <p className={s.Text}>
+            Виконавши завдання, запитайте кодове слово у батьків. Пришліть його
+            мені і я скажу де заховані подарунки.
+          </p>
+        )}
       </div>
 
-      <div className={s.Password}>
-        <p className={s.Hint}>Чекаю на вашу відповідь!</p>
-        <div className={`${s.InputWrapper}`}>
-          <input
-            type="text"
-            value={inputPassword}
-            onChange={handlePasswordChange}
-            className={s.Input}
-          />
-        </div>
-      </div>
-{/* 
-      {!showStash && (
-        <button
-          className={`${s.Submit} ${
-            correctPassword === true ? s["ShrinkAnimation"] : ""
-          }
+      {gift ? (
+        <div className={s.Password}>
+          <p className={s.Hint}>Чекаю на вашу відповідь!</p>
+          <div className={`${s.InputWrapper}`}>
+            <input
+              type="text"
+              value={inputPassword}
+              onChange={handlePasswordChange}
+              className={s.Input}
+            />
+            <button>tfdd</button>
+            {/* {!showStash && (
+              <button
+                className={`${s.Submit} ${
+                  correctPassword === true ? s["ShrinkAnimation"] : ""
+                }
           ${isShaking ? s["ShakeAnimation"] : ""}`}
-          type="button"
-        >
-          <svg className={`${s.Svg}`}>
-            <use href={decor + `#icon-gift`} />
-          </svg>
-          <svg className={`${s.Mark}`}>
-            <use href={decor + `#icon-question`} />
-          </svg>
-        </button>
-      )} */}
+                type="button"
+              >
+                <svg className={`${s.Svg}`}>
+                  <use href={decor + `#icon-gift`} />
+                </svg>
+                <svg className={`${s.Mark}`}>
+                  <use href={decor + `#icon-question`} />
+                </svg>
+              </button>
+            )} */}
+          </div>
+        </div>
+      ) : (
+        <p className={s.Text}>До завтра!</p>
+      )}
 
       {/* {showConfetti && (
         <ConfettiExplosion
