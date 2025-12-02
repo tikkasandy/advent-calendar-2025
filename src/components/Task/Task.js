@@ -1,27 +1,23 @@
 import { useState, useMemo } from "react";
 import adventTasks from "../../data/tasks";
 import christmasStash from "../../data/stash";
-import dayStyles from "../../data/dayStyles";
-import sprite from "../../images/svg/tasksSprite.svg";
-import decor from "../../images/svg/decor.svg";
-import ConfettiExplosion from "confetti-explosion-react";
+import Modal from "../Modal/Modal";
 import s from "./Task.module.scss";
 import debounce from "lodash/debounce";
 
 const Task = ({ date }) => {
   const [inputPassword, setInputPassword] = useState("");
   const [correctPassword, setCorrectPassword] = useState(null);
-  const [showConfetti, setShowConfetti] = useState(false);
-  const [showStash, setShowStash] = useState(false);
-  const [isShaking, setIsShaking] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
   const todayTask = adventTasks.find((task) => task.date === +date) || {};
   const todayStash = christmasStash.find((day) => day.date === +date) || {};
-  const todayStyle = dayStyles.find((day) => day.date === +date) || {};
+  // const todayStyle = dayStyles.find((day) => day.date === +date) || {};
 
   const { task, gift } = todayTask;
   const { stash, password } = todayStash;
-  const { color } = todayStyle;
+  // const { color } = todayStyle;
 
   // Debounced Password Check
   const checkPassword = useMemo(
@@ -34,20 +30,16 @@ const Task = ({ date }) => {
         if (value.trim() === password) {
           setCorrectPassword(true);
           setTimeout(() => {
-            setShowConfetti(true);
-            setShowStash(true);
+            setModalMessage(stash);
+            setShowModal(true);
           }, 1000);
         } else {
           setCorrectPassword(false);
-        }
-
-        // Trigger shake animation on invalid password
-        if (value.trim() !== password) {
-          setIsShaking(true);
-          setTimeout(() => setIsShaking(false), 500);
+          setModalMessage("Неправильний пароль! Спробуйте ще раз.");
+          setShowModal(true);
         }
       }, 1000),
-    [password]
+    [password, stash]
   );
 
   const handlePasswordChange = (e) => {
@@ -57,11 +49,11 @@ const Task = ({ date }) => {
   };
 
   return (
-    <div className={`${s.Day} ${s[color]}`}>
+    <div className={s.Day}>
       <div className={s.TaskWrap}>
         <p className={s.Text}>Любі дівчатка!</p>
         <p className={s.Text}>Ваше завдання на сьогодні:</p>
-        <p className={s.Task}>{task}</p>
+        <p className={`${s.Task} ${task?.length > 50 ? s.LongTask : ""}`}>{task}</p>
         {gift && (
           <p className={s.Text}>
             Виконавши завдання, запитайте кодове слово у батьків. Пришліть його
@@ -79,39 +71,35 @@ const Task = ({ date }) => {
               value={inputPassword}
               onChange={handlePasswordChange}
               className={s.Input}
+              onFocus={(e) =>
+                setTimeout(
+                  () =>
+                    e.target.scrollIntoView({
+                      behavior: "smooth",
+                      block: "center",
+                    }),
+                  300
+                )
+              }
             />
-            <button>tfdd</button>
-            {/* {!showStash && (
-              <button
-                className={`${s.Submit} ${
-                  correctPassword === true ? s["ShrinkAnimation"] : ""
-                }
-          ${isShaking ? s["ShakeAnimation"] : ""}`}
-                type="button"
-              >
-                <svg className={`${s.Svg}`}>
-                  <use href={decor + `#icon-gift`} />
-                </svg>
-                <svg className={`${s.Mark}`}>
-                  <use href={decor + `#icon-question`} />
-                </svg>
-              </button>
-            )} */}
+            <button className={s.SubmitButton}>
+              <div className={`${s.Arrow} ${s.RedArrow}`}></div>
+              <div className={`${s.Arrow} ${s.BlueArrow}`}></div>
+              <div className={`${s.Arrow} ${s.RedArrow}`}></div>
+              <div className={`${s.Arrow} ${s.BlueArrow}`}></div>
+            </button>
           </div>
         </div>
       ) : (
         <p className={s.Text}>До завтра!</p>
       )}
 
-      {/* {showConfetti && (
-        <ConfettiExplosion
-          particleSize={10}
-          particleCount={550}
-          colors={["#14493e", "#953737", "#ff833e", "#f7c979", "#d1e0c1"]}
-        />
-      )} */}
-
-      {showStash && <div className={s.Stash}>{stash}</div>}
+      <Modal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        message={modalMessage}
+        isError={correctPassword === false}
+      />
     </div>
   );
 };

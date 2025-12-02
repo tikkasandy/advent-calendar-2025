@@ -65,11 +65,11 @@ const Day = () => {
   return (
     <div className={s.Day}>
       <div className={s.DayInner}>
-        <Header />
+        {!isEarlyDate && <Header />}
         <Main>
           {isEarlyDate ? <EarlyDate dayId={dayId} /> : <Task date={dayId} />}
         </Main>
-        <Footer text={`${dayId} грудня 2025 року`} />
+        {!isEarlyDate && <Footer text={`${dayId} грудня 2025 року`} />}
       </div>
     </div>
   );

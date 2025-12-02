@@ -1,109 +1,63 @@
-@import '/src/styles/shared.module.scss';
+@import "/src/styles/shared.module.scss";
 
 .Day {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;   
-    align-items: center;
-    overflow: hidden;
-    // min-height: calc(100vh - 30px);
-    height: calc(100svh - $header-height - $footer-height - 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  // min-height: calc(100vh - 30px);
+  height: calc(100svh - $header-height - $footer-height - 64px);
 }
 
 .TaskWrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    // height: 100px;
-    margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  // height: 100px;
+  margin: 20px 0;
 }
 
 .Task {
-    font-size: 40px;
-    font-weight: bold;
-    padding: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 20px;
+  color: $red-color;
+}
 
-    .Grey & {
-      color: $red-color
-    }
-
-    .Yellow & {
-      color: $green-color;
-    }
-
-    .Green & {
-      color: $yellow-color;
-    }
-
-    .Red & {
-      color: $grey-color;
-    }
-
-    .Orange & {
-      color: $green-color;
-    }
+.LongTask {
+  font-size: 32px;
 }
 
 .Text {
   font-size: 24px;
 }
 
-.LogoWrap {
-  height: 150px;
-  margin-bottom: 20px;
-}
-
-.Logo {
-  height: 150px;
-
-    .Grey & {
-      fill: $green-color;
-    }
-
-    .Yellow & {
-      fill: $red-color;
-    }
-
-    .Green & {
-      fill: $red-color;
-    }
-
-    .Red & {
-      fill:$yellow-color;
-    }
-
-    .Orange & {
-      fill: $grey-color
-    }
+.Password {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .Hint {
   font-size: 24px;
   margin-bottom: 10px;
-
-  .Green &,
-  .Red &,
-  .Orange & {
-        color: $white-color;
-    }
-}
-
-.Form {
-  display: flex;
-  justify-content: center;
 }
 
 .InputWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  width: 100%;
+  // padding-right: 20px;
 }
 
 .Input {
-  margin-bottom: 10px;
+  width: 60%;
+  // margin-right: 10px;
   background-color: #efe5dc;
   // border: none;
   // border-bottom: 3px solid ;
@@ -116,16 +70,17 @@
   border: 4px solid;
   // border-radius: 28px;
   border-image: repeating-linear-gradient(
-    135deg,
-    #1e4b5f,
-    #1e4b5f 5px,
-    transparent 5px,
-    transparent 7px,
-    #7a231d 7px,
-    #7a231d 12px,
-    transparent 12px,
-    transparent 14px,
-  ) 5;
+      135deg,
+      #1e4b5f,
+      #1e4b5f 5px,
+      transparent 5px,
+      transparent 7px,
+      #7a231d 7px,
+      #7a231d 12px,
+      transparent 12px,
+      transparent 14px
+    )
+    5;
   // width: 100%;
 
   // .Grey & {
@@ -145,205 +100,76 @@
   //   }
 }
 
-.Submit {
-  // width: 60px;
-  // height: 40px;
-
-  background-color: transparent;
-  position: relative;
-  // right: 10px;
-  // top: 50%;
-  // transform: translateY(-50%);
-  // border: none;
-  // background: none;
-  // cursor: pointer;
-  // padding: 5px;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  // height: 30px;
-  // width: 30px;
-  // background-color: #f0f0f0; /* Button background color */
-  border-radius: 20px; /* Optional: make the button circular */
-  transition: background-color 0.3s;
-  border: none;
-
-  //  .Grey & {
-  //     background-color: $red-color
-  //   }
-
-    .Yellow & {
-      color: $green-color;
-    }
-
-    .Green & {
-      color: $yellow-color;
-    }
-
-    .Red & {
-      color: $grey-color;
-    }
-
-    // border: 1px solid;
-
-  // &:hover {
-  //   // background-color: #e0e0e0; /* Change color on hover */
-  //   fill: green;
-  // }
-
-  // &:active {
-  //   background-color: #d0d0d0; /* Change color on active click */
-  // }
-}
-
-.Svg {
-  width: 100px; /* Adjust icon size */
-  height: 100px;
-
-    .Grey & {
-      fill: $red-color;
-    }
-
-        .Yellow & {
-      fill: $orange-color;
-    }
-
-    .Green & {
-      fill: $grey-color;
-    }
-
-    .Red & {
-      fill: $green-color;
-    }
-
-    .Orange & {
-      fill: $red-color;
-    }
-}
-
-.Mark {
+.SubmitButton {
   position: absolute;
-  color: $green-color;
-  font-size: 52px;
-  font-weight: bold;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  fill: $green-color;
+  left: 78%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  gap: 2px;
+  transition: transform 0.2s;
 
-    .Grey & {
-      fill: $green-color;
-    }
+  &:hover {
+    transform: scale(1.1);
+  }
 
-    .Yellow & {
-      fill: $green-color;
-    }
-
-    .Green & {
-      fill: $red-color;
-    }
-
-    .Red & {
-      fill: $yellow-color;
-    }
-
-    .Orange & {
-      fill: $green-color;
-    }
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
-.Stash {
-  // visibility: hidden;
-  // opacity: 0;
-  transition: opacity 0.3s ease;
-  font-size: 36px;
-    font-weight: bold;
-    padding: 5px;
-
-    .Grey & {
-      color: $red-color
-    }
-
-    .Yellow & {
-      color: $green-color;
-    }
-
-    .Green & {
-      color: $yellow-color;
-    }
-
-    .Red & {
-      color: $grey-color;
-    }
-
-    .Orange & {
-      color: $green-color;
-    }
+.Arrow {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  animation: arrow-load 1.6s infinite;
 }
 
-.Stash.visible {
-  visibility: visible;
-  opacity: 1;
+.Arrow:nth-child(1) {
+  // left: 5px;
+  // animation-delay: -0.5s;
 }
 
-.Stash.hidden {
-  visibility: hidden;
-  opacity: 0;
+.Arrow:nth-child(2) {
+  right: 5px;
+  animation-delay: 0.4s;
 }
 
-.ErrorMessage {
-  color: red;
-  font-weight: bold;
-  margin-top: 10px;
+.Arrow:nth-child(3) {
+  right: 10px;
+  animation-delay: 0.8s;
 }
 
-.Stash {
-  color: green;
-  font-weight: bold;
-  margin-top: 10px;
+.Arrow:nth-child(4) {
+  right: 15px;
+  animation-delay: 1.2s;
 }
 
-.ShrinkAnimation {
-  animation: shrink-disappear 2s forwards;
+.RedArrow {
+  border-top: 3px solid #a53737;
+  border-right: 3px solid #a53737;
 }
 
-@keyframes shrink-disappear {
+.BlueArrow {
+  border-top: 3px solid #1e4b5f;
+  border-right: 3px solid #1e4b5f;
+}
+
+@keyframes arrow-load {
   0% {
-    transform: scale(1);
+    opacity: 0;
+  }
+
+    50% {
     opacity: 1;
   }
-  100% {
-    transform: scale(0);
+
+    100% {
     opacity: 0;
   }
 }
-
-
-@keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-5px);
-  }
-  50% {
-    transform: translateX(5px);
-  }
-  75% {
-    transform: translateX(-5px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.ShakeAnimation {
-  // animation: shake 0.5s ease-in-out;
-  animation: shake 0.2s ease-in-out 0s 2;
-}
-
-
-
-

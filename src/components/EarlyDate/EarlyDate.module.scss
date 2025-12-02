@@ -1,57 +1,26 @@
-@import '/src/styles/shared.module.scss';
+@import "/src/styles/shared.module.scss";
+
+.Day {
+  height: calc(100svh - $header-height - $footer-height - 64px);
+  margin-top: calc($header-height + 10px);
+  margin-bottom: calc($footer-height + 10px);
+}
 
 .Logo {
-  height: 200px;
-  width: 200px;
-
-    .Grey & {
-      fill: $red-color;
-    }
-
-    .Yellow & {
-      fill: $red-color;
-    }
-
-    .Green & {
-      fill: $white-color;
-    }
-
-    .Red & {
-      fill:$white-color;
-    }
-
-    .Orange & {
-        fill: $black-color;
-    }
+   width: 300px;
+  margin-bottom: 20px;
 }
 
 .Ho {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 .Text {
-    font-size: 36px
+  font-size: 36px;
 }
 
 .Ho,
 .Text {
-    .Grey & {
-      color: $green-color;
-    }
-
-    .Yellow & {
-      color: $green-color;
-    }
-
-    .Green & {
-      color: $yellow-color;
-    }
-
-    .Red & {
-      color: $yellow-color;
-    }
-
-    .Orange & {
-        color: $white-color;
-    }
+  font-weight: 800;
+color: #1e4b5f;
 }
