@@ -13,43 +13,60 @@
 }
 
 .Modal {
-  background-color: #efe5dc;
-  border-radius: 10px;
+  // background-color: #efe5dc;
+  background-image: url('../../images/img/cover.png');
+  background-size: cover;
   padding: 30px;
   max-width: 500px;
   width: 90%;
   position: relative;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  animation: slideIn 0.3s ease-out;
+  animation: rotateScale 1.5s ease-out;
   border: 7px solid;
   border-image: repeating-linear-gradient(
       135deg,
       #1e4b5f,
-      #1e4b5f 10px,
-      transparent 10px,
+      #1e4b5f 15px,
       transparent 15px,
-      #7a231d 15px,
-      #7a231d 25px,
-      transparent 25px,
-      transparent 30px
+      transparent 20px,
+      #7a231d 20px,
+      #7a231d 35px,
+      transparent 35px,
+      transparent 40px
     )
     10;
+
+    transform: rotate(1085deg);
+}
+
+.ModalClosing {
+  animation: rotateScaleReverse 1.5s ease-in forwards;
 }
 
 .CloseButton {
   position: absolute;
   top: 10px;
-  right: 15px;
+  right: 10px;
   background: none;
   border: none;
-  font-size: 40px;
   cursor: pointer;
-  color: #7a231d;
-  line-height: 1;
   transition: transform 0.2s;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // transform: rotate(15deg);
+
+  img {
+    width: 30px;
+    height: 30px;
+
+    fill: red;
+  }
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.2) rotate(15deg);
   }
 }
 
@@ -58,7 +75,7 @@
 }
 
 .ModalTitle {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: bold;
   color: #1e4b5f;
   margin-bottom: 20px;
@@ -69,13 +86,14 @@
 }
 
 .ModalText {
-  font-size: 24px;
+  font-size: 28px;
+  font-weight: bold;
   color: #7a231d;
   line-height: 1.5;
 }
 
 .ErrorText {
-  color: #a53737;
+  color: #1e4b5f;
 }
 
 @keyframes fadeIn {
@@ -87,13 +105,24 @@
   }
 }
 
-@keyframes slideIn {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
+@keyframes rotateScale {
+  0% {
+    transform: scale(0) rotate(0deg);
+    // opacity: 0;
   }
-  to {
-    transform: translateY(0);
-    opacity: 1;
+  100% {
+    transform: scale(1) rotate(1085deg);
+    // opacity: 1;
+  }
+}
+
+@keyframes rotateScaleReverse {
+  0% {
+    transform: scale(1) rotate(1085deg);
+    // opacity: 1;
+  }
+  100% {
+    transform: scale(0) rotate(0deg);
+    // opacity: 0;
   }
 }

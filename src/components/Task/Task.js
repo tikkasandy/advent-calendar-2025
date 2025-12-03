@@ -1,9 +1,7 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import adventTasks from "../../data/tasks";
-import christmasStash from "../../data/stash";
 import Modal from "../Modal/Modal";
 import s from "./Task.module.scss";
-import debounce from "lodash/debounce";
 
 const Task = ({ date }) => {
   const [inputPassword, setInputPassword] = useState("");
@@ -12,40 +10,41 @@ const Task = ({ date }) => {
   const [modalMessage, setModalMessage] = useState("");
 
   const todayTask = adventTasks.find((task) => task.date === +date) || {};
-  const todayStash = christmasStash.find((day) => day.date === +date) || {};
-  // const todayStyle = dayStyles.find((day) => day.date === +date) || {};
 
-  const { task, gift } = todayTask;
-  const { stash, password } = todayStash;
-  // const { color } = todayStyle;
-
-  // Debounced Password Check
-  const checkPassword = useMemo(
-    () =>
-      debounce((value) => {
-        if (value.trim() === "") {
-          setCorrectPassword(null);
-          return;
-        }
-        if (value.trim() === password) {
-          setCorrectPassword(true);
-          setTimeout(() => {
-            setModalMessage(stash);
-            setShowModal(true);
-          }, 1000);
-        } else {
-          setCorrectPassword(false);
-          setModalMessage("Неправильний пароль! Спробуйте ще раз.");
-          setShowModal(true);
-        }
-      }, 1000),
-    [password, stash]
-  );
+  const { task, gift, stash, password } = todayTask;
 
   const handlePasswordChange = (e) => {
     const value = e.target.value;
     setInputPassword(value);
-    checkPassword(value); // Debounced password check
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Blur the input to dismiss the mobile keyboard
+    if (e.target && e.target.querySelector) {
+      const input = e.target.querySelector('input');
+      if (input) {
+        input.blur();
+      }
+    }
+
+    if (inputPassword.trim() === "") {
+      setCorrectPassword(false);
+      setModalMessage("Будь ласка, введіть пароль!");
+      setShowModal(true);
+      return;
+    }
+
+    if (inputPassword.trim() === password) {
+      setCorrectPassword(true);
+      setModalMessage(stash);
+      setShowModal(true);
+    } else {
+      setCorrectPassword(false);
+      setModalMessage("Неправильне кодове слово! Спробуйте ще раз.");
+      setShowModal(true);
+    }
   };
 
   return (
@@ -53,11 +52,13 @@ const Task = ({ date }) => {
       <div className={s.TaskWrap}>
         <p className={s.Text}>Любі дівчатка!</p>
         <p className={s.Text}>Ваше завдання на сьогодні:</p>
-        <p className={`${s.Task} ${task?.length > 50 ? s.LongTask : ""}`}>{task}</p>
+        <p className={`${s.Task} ${task?.length > 50 ? s.LongTask : ""}`}>
+          {task}
+        </p>
         {gift && (
           <p className={s.Text}>
-            Виконавши завдання, запитайте кодове слово у батьків. Пришліть його
-            мені і я скажу де заховані подарунки.
+            Після виконання завдання з’ясуйте кодове слово у батьків. Надішліть
+            його мені — і ви дізнаєтесь місце схованки подарунків.
           </p>
         )}
       </div>
@@ -65,7 +66,7 @@ const Task = ({ date }) => {
       {gift ? (
         <div className={s.Password}>
           <p className={s.Hint}>Чекаю на вашу відповідь!</p>
-          <div className={`${s.InputWrapper}`}>
+          <form onSubmit={handleSubmit} className={`${s.InputWrapper}`}>
             <input
               type="text"
               value={inputPassword}
@@ -82,13 +83,13 @@ const Task = ({ date }) => {
                 )
               }
             />
-            <button className={s.SubmitButton}>
+            <button type="submit" className={s.SubmitButton}>
               <div className={`${s.Arrow} ${s.RedArrow}`}></div>
               <div className={`${s.Arrow} ${s.BlueArrow}`}></div>
               <div className={`${s.Arrow} ${s.RedArrow}`}></div>
               <div className={`${s.Arrow} ${s.BlueArrow}`}></div>
             </button>
-          </div>
+          </form>
         </div>
       ) : (
         <p className={s.Text}>До завтра!</p>
