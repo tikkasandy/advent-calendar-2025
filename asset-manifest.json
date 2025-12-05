@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/advent-calendar-2025/static/css/main.65a365a8.css",
-    "main.js": "/advent-calendar-2025/static/js/main.400f085a.js",
+    "main.js": "/advent-calendar-2025/static/js/main.026ff903.js",
     "static/media/cover.png": "/advent-calendar-2025/static/media/cover.4298cad9a9baea615750.png",
     "static/media/sprite.svg": "/advent-calendar-2025/static/media/sprite.4b227e108e666b6eb006078ed42135f1.svg",
     "static/media/post-in-way.png": "/advent-calendar-2025/static/media/post-in-way.c210332d992e05ecf8b4.png",
@@ -11,10 +11,10 @@
     "index.html": "/advent-calendar-2025/index.html",
     "static/media/close.svg": "/advent-calendar-2025/static/media/close.0656d47badc96d1c1d2422bb893391cc.svg",
     "main.65a365a8.css.map": "/advent-calendar-2025/static/css/main.65a365a8.css.map",
-    "main.400f085a.js.map": "/advent-calendar-2025/static/js/main.400f085a.js.map"
+    "main.026ff903.js.map": "/advent-calendar-2025/static/js/main.026ff903.js.map"
   },
   "entrypoints": [
     "static/css/main.65a365a8.css",
-    "static/js/main.400f085a.js"
+    "static/js/main.026ff903.js"
   ]
 }
