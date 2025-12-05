@@ -2,7 +2,7 @@ const adventTasks = [
   {
     date: 1,
     task: "Перевірте поштову скриньку.",
-    gift: true,
+    gift: false,
     password: "Ялинка",
     stash: "Подарунок під ліжком в ігровій",
   },
