@@ -11,7 +11,7 @@ const Task = ({ date }) => {
 
   const todayTask = adventTasks.find((task) => task.date === +date) || {};
 
-  const { task, gift, stash, password } = todayTask;
+  const { task, gift, stash, password, hint } = todayTask;
 
   const handlePasswordChange = (e) => {
     const value = e.target.value;
@@ -52,12 +52,12 @@ const Task = ({ date }) => {
       <div className={s.TaskWrap}>
         <p className={s.Text}>Любі дівчатка!</p>
         <p className={s.Text}>Ваше завдання на сьогодні:</p>
-        <p className={`${s.Task} ${task?.length > 50 ? s.LongTask : ""}`}>
+        <p className={`${s.Task} ${task?.length > 150 ? s.VeryLongTask : task?.length > 50 ? s.LongTask : ""}`}>
           {task}
         </p>
         {gift && (
           <p className={s.Text}>
-            Після виконання завдання з’ясуйте кодове слово у батьків. Надішліть
+            Після виконання завдання з'ясуйте кодове слово у батьків. Надішліть
             його мені — і ви дізнаєтесь місце схованки подарунків.
           </p>
         )}
@@ -100,6 +100,8 @@ const Task = ({ date }) => {
         onClose={() => setShowModal(false)}
         message={modalMessage}
         isError={correctPassword === false}
+        hint={hint}
+        date={date}
       />
     </div>
   );

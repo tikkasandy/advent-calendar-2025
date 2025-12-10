@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import s from "./Modal.module.scss";
 import closeIcon from "../../images/svg/close.svg";
 
-const Modal = ({ isOpen, onClose, message, isError }) => {
+const Modal = ({ isOpen, onClose, message, isError, hint, date }) => {
   const [isClosing, setIsClosing] = useState(false);
   const [shouldRender, setShouldRender] = useState(isOpen);
 
@@ -37,6 +37,13 @@ const Modal = ({ isOpen, onClose, message, isError }) => {
           <p className={`${s.ModalText} ${isError ? s.ErrorText : ""}`}>
             {message}
           </p>
+          {hint && !isError && (
+            <img
+              src={require(`../../images/img/hint${date}.jpeg`)}
+              alt={`Hint for day ${date}`}
+              className={s.HintImage}
+            />
+          )}
         </div>
       </div>
     </div>
