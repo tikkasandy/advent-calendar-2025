@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/advent-calendar-2025/static/css/main.42f27114.css",
-    "main.js": "/advent-calendar-2025/static/js/main.3f9c4b9e.js",
+    "main.css": "/advent-calendar-2025/static/css/main.94b4a980.css",
+    "main.js": "/advent-calendar-2025/static/js/main.7bfd1cc1.js",
     "static/media/cover.png": "/advent-calendar-2025/static/media/cover.4298cad9a9baea615750.png",
     "static/media/sprite.svg": "/advent-calendar-2025/static/media/sprite.4b227e108e666b6eb006078ed42135f1.svg",
     "static/media/post-in-way.png": "/advent-calendar-2025/static/media/post-in-way.c210332d992e05ecf8b4.png",
@@ -11,11 +11,11 @@
     "static/media/tree1.png": "/advent-calendar-2025/static/media/tree1.18dcbba283b5d6721116.png",
     "index.html": "/advent-calendar-2025/index.html",
     "static/media/close.svg": "/advent-calendar-2025/static/media/close.0656d47badc96d1c1d2422bb893391cc.svg",
-    "main.42f27114.css.map": "/advent-calendar-2025/static/css/main.42f27114.css.map",
-    "main.3f9c4b9e.js.map": "/advent-calendar-2025/static/js/main.3f9c4b9e.js.map"
+    "main.94b4a980.css.map": "/advent-calendar-2025/static/css/main.94b4a980.css.map",
+    "main.7bfd1cc1.js.map": "/advent-calendar-2025/static/js/main.7bfd1cc1.js.map"
   },
   "entrypoints": [
-    "static/css/main.42f27114.css",
-    "static/js/main.3f9c4b9e.js"
+    "static/css/main.94b4a980.css",
+    "static/js/main.7bfd1cc1.js"
   ]
 }
