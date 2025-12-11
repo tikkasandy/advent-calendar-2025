@@ -47,16 +47,18 @@ const Task = ({ date }) => {
     }
   };
 
+  const textClass = `${s.Text} ${task?.length > 150 ? s.VeryLongText : ""}`;
+
   return (
     <div className={s.Day}>
       <div className={s.TaskWrap}>
-        <p className={s.Text}>Любі дівчатка!</p>
-        <p className={s.Text}>Ваше завдання на сьогодні:</p>
+        <p className={textClass}>Любі дівчатка!</p>
+        <p className={textClass}>Ваше завдання на сьогодні:</p>
         <p className={`${s.Task} ${task?.length > 150 ? s.VeryLongTask : task?.length > 50 ? s.LongTask : ""}`}>
           {task}
         </p>
         {gift && (
-          <p className={s.Text}>
+          <p className={textClass}>
             Після виконання завдання з'ясуйте кодове слово у батьків. Надішліть
             його мені — і ви дізнаєтесь місце схованки подарунків.
           </p>
