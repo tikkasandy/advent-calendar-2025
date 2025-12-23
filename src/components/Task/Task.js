@@ -94,7 +94,7 @@ const Task = ({ date }) => {
           </form>
         </div>
       ) : (
-        <p className={s.Text}>До завтра!</p>
+        <p className={s.Text}>{+date === 24 ? "До наступного року!" : "До завтра!"}</p>
       )}
 
       <Modal
